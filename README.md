@@ -28,3 +28,14 @@ Collecting numpy (from -r /kubeless/requirements.txt (line 1))
   Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;pip._vendor.urllib3.connection.VerifiedHTTPSConnection object at 0x7fe023a66860&gt;: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution')': /simple/numpy/
 ```
 
+This error indicates that the Pods cannot reach the internet. To fix this if using microk8s you can run
+
+```
+microk8s.inspect
+...
+ WARNING:  IPtables FORWARD policy is DROP. Consider enabling traffic forwarding with: sudo iptables -P FORWARD ACCEPT 
+Building the report tarball
+
+```
+
+Running this iptables command should fix the issue.
