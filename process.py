@@ -1,4 +1,4 @@
-import math
+import numpy as np
 
 def process_wrapper(event, context):
     print(f"event={event}")
@@ -6,4 +6,4 @@ def process_wrapper(event, context):
     return str(process(float(event['data'].decode('utf-8')))).encode('utf-8')
 
 def process(x):
-    return math.sqrt(x)
+    return np.sqrt(x)
